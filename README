@@ -1,0 +1,26 @@
+ _______          __  .__  _____                 .__     
+ \      \   _____/  |_|__|/ ____\__.__.     _____|  |__  
+ /   |   \ /  _ \   __\  \   __<   |  |    /  ___/  |  \ 
+/    |    (  <_> )  | |  ||  |  \___  |    \___ \|   Y  \
+\____|__  /\____/|__| |__||__|  / ____| /\/____  >___|  /
+        \/                      \/      \/     \/     \/ 
+
+h1. Notify.sh
+
+Notify.sh is a collection of helper scripts to turn vanilla shell scripts into more awesome and more friendly.
+
+h2. Use cases
+* Enable conditional runtime breakpoints for scripts to check if a step passed/failed.
+* Based on result of the step send out notification (e-mail,twitter etc).
+* Optionally Suspend/Resume the script if error occurs, without user have to continously monitor it's status.
+* Define Cleanup functions after the script gets completed/error occurs.
+
+h2. Getting started
+  To be written
+
+h2. Runtime Dependencies
+* python 2.6+
+
+h2. Roadmap 
+ To be written
+
