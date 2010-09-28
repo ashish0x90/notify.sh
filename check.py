@@ -11,7 +11,7 @@ Todo:
 
 import sys,os,tempfile
 from lib.utils import getScriptPid
-from lib.status import addPidToStatus
+from lib.status import addPidToStatus,remPidFromStatus
 
 import logging
 import logging.config
@@ -34,20 +34,20 @@ def suspendScript():
 
     try:
         os.mkfifo(lock_file) #create the Fifo file
-
-        reader = os.open(lock_file,os.O_RDONLY) #Read from Fifo file
         addPidToStatus(script_pid) #Add Pid to status File
+        reader = open(lock_file,'r') #Read from Fifo file
 
         while True: #Parse the commands sent by the client and work accordingly
-            log.info("Script PID:%d paused"%script_pid)
+            log.info("Script paused  PID:%d"%script_pid)
             msg = reader.readline()[:-1].strip()
             if msg == 'resume': #Means break the lock and continue
-                log.info("Ordered to break and lock the continue with the execution of the script")
+                log.info("Ordered to break and lock the continue with the execution of the script, PID:%d"%script_pid)
                 reader.close()
                 os.unlink(lock_file) #destory Fifo
+                break
         remPidFromStatus(script_pid) #Remove this process from the list of blocked processes
     except Exception, e:
-        log.info("Some Exception occured, cleanup and exit")
+        log.exception("Some Exception occured, cleanup and exit")
         cleanUp()
         
 def cleanUp(lock_file):

@@ -23,11 +23,11 @@ Use cases
 
 Getting started
 ---------------
-  Yet To be written
+  Yet To be written, Working Version isn't ready yet
 
 Runtime Dependencies
 --------------------
-- python 2.6+
+- python 2.6
 
 Roadmap 
 --------------------

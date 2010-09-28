@@ -9,3 +9,9 @@ def getScriptPid():
     '''
     return os.getppid()
 
+
+def getProcessInfo(pid):
+    '''
+    Given process ID, it returns information (as formatted string) about that process
+    '''
+    return '' #returns empty string for now
