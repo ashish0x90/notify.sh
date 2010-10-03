@@ -46,7 +46,8 @@ if __name__=='__main__':
     print 'Number of processes currently blocked : %s\n'%len(processList)
     for pid,information in processList.iteritems():
         print "PID: %s"%pid
-        print information
+        for k,v in information.iteritems():
+            print ("\t%-10s: %s"%(k,v))
         print '\n\n'
 
     #Get PID of the process to be unblocked
