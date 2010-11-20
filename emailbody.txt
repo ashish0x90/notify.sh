@@ -1,0 +1,12 @@
+One of the Script started using notify.sh had a error and is CURRENTLY SUSPENDED.
+Details :
+%s 
+
+
+To resume the suspended process 
+1) Login to the concerned system . 
+2) Run *sh resume.sh %s* 
+          OR 
+Can alternatively *kill %s* to kill the process.
+
+Note: Resume script is available as part of the notify.sh scripts.
