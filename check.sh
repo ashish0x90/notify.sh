@@ -7,7 +7,6 @@ suspend_process()
 #This function will suspend the original script which invoked this script
 
 pipe=$tmp_dir$script_pid".lock"
-echo $pipe
 
 if [ -p $pipe ]; then
     rm $pipe
@@ -22,7 +21,6 @@ do
     if [ $line = "CONTINUE" ]; then
             break
     fi
-    echo $line
     echo "Resuming the process(pid) : "$pid
     echo "Deleting the pipe"
     rm $pipe
@@ -74,11 +72,6 @@ if [ ! -e $cfg_file ]; then
     exit 1
 fi
 
-#ps --no-headers -o ppid -p $$
-#get_ppid
-#export script_pid=$?
 export script_pid=`ps --no-headers -o ppid -p $$`
-
 script_pid=`expr $script_pid`
-echo "ab"$script_pid
 check_status $*
