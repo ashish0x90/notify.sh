@@ -44,7 +44,7 @@ Getting started
 
   Notify.sh can be integrated with existing shell scripts in following k simple steps.
 
-
+#. Download the latest copy of notify.sh code, and copy your scripts(s) in the same directory which has notify.sh contents.
 #. Update the notification.cfg template file provided, with approproiate settings.
 #. Run demo.sh to see if notification.cfg file is valid. You should get error email, also try to resume the suspended demo.sh process. If this works, then you are all good so far.
 #. Now one very important thing to be noted before we move any further is that - 
