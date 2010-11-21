@@ -7,6 +7,7 @@ suspend_process()
 #This function will suspend the original script which invoked this script
 
 pipe=$tmp_dir$script_pid".lock"
+echo $pipe
 
 if [ -p $pipe ]; then
     rm $pipe
@@ -44,8 +45,7 @@ cfg_file=$2
 if [ $exit_code -ne 0 ]; then
     #Possibly error, Got Non Zero Exit Code
     python notify.py -p $script_pid -e $exit_code -f $cfg_file
-    notify_exit_code=0
-    if [ $notify_exit_code -eq 0 ]; then
+    if [ $? -eq 0 ]; then
 	suspend_process
     fi	
 	
@@ -78,5 +78,7 @@ fi
 #get_ppid
 #export script_pid=$?
 export script_pid=`ps --no-headers -o ppid -p $$`
-echo $script_pid
+
+script_pid=`expr $script_pid`
+echo "ab"$script_pid
 check_status $*

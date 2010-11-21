@@ -87,9 +87,8 @@ class email:
         server.login(sender_username, sender_passwd)
         
         msg = self.__getMsg()
-        print msg.as_string()
         reciepents = [each.strip() for each in msg['TO'].split(',')]
-        #server.sendmail(msg['FROM'].strip(), reciepents, msg.as_string()) #Send out the email
+        server.sendmail(msg['FROM'].strip(), reciepents, msg.as_string()) #Send out the email
         server.close()
 
     
@@ -106,7 +105,6 @@ def parseOptions():
                       )
 
     options, args = parser.parse_args()
-    print options.__dict__
 
     if not (options.pid and options.cfg_file and options.exit_code):
         print "Probably missing one or more of mandatory arguments"
